@@ -38,4 +38,11 @@ public class ToggleExhibitLight : MonoBehaviour
             if (!isOn && offMaterial != null) buttonRenderer.material = offMaterial;
         }
     }
+
+    [ContextMenu("DEBUG Toggle Now")]
+    private void DebugToggleNow()
+    {
+        Toggle();
+    }
+
 }

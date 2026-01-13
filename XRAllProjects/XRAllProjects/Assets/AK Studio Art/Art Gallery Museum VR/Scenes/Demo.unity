@@ -192,6 +192,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 427efffa8d0a98b4b969e205012d9332, type: 3}
+--- !u!1 &24206618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 24206620}
+  - component: {fileID: 24206619}
+  m_Layer: 0
+  m_Name: LeafRotatorScriptHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &24206619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24206618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af12d879f703fef4ea4a326e6d0b49f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 810659287}
+  leafPivot: {fileID: 700149279}
+  rotationSpeed: 36.89
+  returnSpeed: 90
+--- !u!4 &24206620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24206618}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.558088, y: -7.846704, z: 48.4294}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &60218686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,7 +326,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61064740}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -367,7 +415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61064740}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -14.505, y: 1.694, z: -8.788}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2609,7 +2657,7 @@ Transform:
   m_GameObject: {fileID: 405547840}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.993385, y: -200.92522, z: 545.62067}
+  m_LocalPosition: {x: 27.993385, y: -200.92522, z: 540.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3063,7 +3111,7 @@ GameObject:
   - component: {fileID: 443756966}
   - component: {fileID: 443756965}
   - component: {fileID: 443756964}
-  - component: {fileID: 443756963}
+  - component: {fileID: 443756969}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -3071,24 +3119,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &443756963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443756962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bd8a7a95c583ad44b3bab3f6ada3749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLight: {fileID: 61064741}
-  targetLightGO: {fileID: 0}
-  clickSound: {fileID: 0}
-  onMaterial: {fileID: 0}
-  offMaterial: {fileID: 0}
-  buttonRenderer: {fileID: 0}
 --- !u!114 &443756964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3137,10 +3167,10 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 443756963}
-        m_TargetAssemblyTypeName: ToggleExhibitLight, Assembly-CSharp
-        m_MethodName: Toggle
-        m_Mode: 1
+      - m_Target: {fileID: 443756969}
+        m_TargetAssemblyTypeName: SpotlightToggle, Assembly-CSharp
+        m_MethodName: ToggleSpotlight
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3264,6 +3294,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!114 &443756969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443756962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf05c629845f3c4087746f8d08b1d28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSpotlight: {fileID: 61064741}
+  defaultMaterial: {fileID: 0}
+  hoveredMaterial: {fileID: 0}
+  switchRenderer: {fileID: 443756966}
 --- !u!1001 &457411116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3599,7 +3645,6 @@ Transform:
   - {fileID: 3015277517257341494}
   - {fileID: 1724891620}
   - {fileID: 1112544148}
-  - {fileID: 1919587610}
   - {fileID: 6921328795227269751}
   - {fileID: 8928648075261084076}
   - {fileID: 5102724212552635336}
@@ -4060,7 +4105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -19.03
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4683,7 +4728,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Tyrannosaurus rex '
+  m_text: WELCOME TO THE MUSEUM
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4717,7 +4762,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4748,7 +4793,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -256.26108, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4848,6 +4893,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675a30d21a0b1904d8fce87c49f31d5e, type: 3}
+--- !u!1 &700149278
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 700149279}
+  - component: {fileID: 700149280}
+  - component: {fileID: 700149281}
+  m_Layer: 0
+  m_Name: Leaf Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &700149279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700149278}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.124, y: 1.37, z: -0.888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1919587610}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &700149280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700149278}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be0bada2f1918c41974c938e08ef790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &700149281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700149278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce090ff5ff0c9ef46ad580562fc0dde0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 810659287}
+  moveSpeed: 4
+  turnSpeed: 120
+  onlyTurnWhileMoving: 1
 --- !u!4 &705388535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4167884605761858113, guid: f436bb3dbae08e24bbbbd8439e108630, type: 3}
@@ -7077,6 +7184,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766288162}
   m_Mesh: {fileID: 4163142395352508530, guid: 2474a257b9cc4804b8d4ddb39b27ccca, type: 3}
+--- !u!114 &810659287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8370894837161959244, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+  m_PrefabInstance: {fileID: 1636803650}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a211dbb1cc70ca42900df0d14967ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &813890941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1686814114196794984, guid: e1d29cb3b249440438b16632058c9e29, type: 3}
@@ -10058,6 +10176,53 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159954422}
   m_Mesh: {fileID: 8689713214013092434, guid: 2474a257b9cc4804b8d4ddb39b27ccca, type: 3}
+--- !u!1 &1166703522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1166703524}
+  - component: {fileID: 1166703523}
+  m_Layer: 0
+  m_Name: LeafRotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1166703523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166703522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1ca94d87ac7bd4eafc0e1a7dcc72a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystickDrive: {fileID: 810659287}
+  leafPivot: {fileID: 700149279}
+  maxYawDegrees: 90
+--- !u!4 &1166703524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166703522}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.5718931, y: -24.521347, z: 42.364418}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1172173493
 GameObject:
   m_ObjectHideFlags: 0
@@ -10890,6 +11055,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6095457439780357929, guid: b2aaaa693f16ca64eaf63061011a8639, type: 3}
   m_PrefabInstance: {fileID: 1314659456}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1278353956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2972454857955305533, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+  m_PrefabInstance: {fileID: 1636803650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1278353964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278353956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf17a40754ef5140a5dc768960ffae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dinoPivot: {fileID: 700149279}
+  maxYawDegrees: 360
+--- !u!114 &1278353965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278353956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c1ca94d87ac7bd4eafc0e1a7dcc72a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystickDrive: {fileID: 810659287}
+  leafPivot: {fileID: 700149279}
+  maxYawDegrees: 360
 --- !u!1001 &1279811737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13542,6 +13741,73 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f66dc8ddf1ac5564ba683b57f46eb4f1, type: 3}
+--- !u!1001 &1636803650
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.942
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.137
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.804
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252242992736458967, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613378586225681824, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545773187164004262, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      propertyPath: m_Name
+      value: Joystick
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2972454857955305533, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1278353964}
+    - targetCorrespondingSourceObject: {fileID: 2972454857955305533, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1278353965}
+  m_SourcePrefab: {fileID: 100100000, guid: 7b8f23391ac8f6847add86942684e907, type: 3}
 --- !u!4 &1668942851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5487316062312251720, guid: 675a30d21a0b1904d8fce87c49f31d5e, type: 3}
@@ -15412,7 +15678,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 543644944}
+    m_TransformParent: {fileID: 700149279}
     m_Modifications:
     - target: {fileID: 3952323364580267033, guid: 656cf4f7596039f46b61df9ddec0a24d, type: 3}
       propertyPath: m_RootOrder
@@ -15420,15 +15686,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3952323364580267033, guid: 656cf4f7596039f46b61df9ddec0a24d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.1431
+      value: 0.019099712
       objectReference: {fileID: 0}
     - target: {fileID: 3952323364580267033, guid: 656cf4f7596039f46b61df9ddec0a24d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9625405
+      value: -0.279
       objectReference: {fileID: 0}
     - target: {fileID: 3952323364580267033, guid: 656cf4f7596039f46b61df9ddec0a24d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.849
+      value: 0.039000988
       objectReference: {fileID: 0}
     - target: {fileID: 3952323364580267033, guid: 656cf4f7596039f46b61df9ddec0a24d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15461,6 +15727,10 @@ PrefabInstance:
     - target: {fileID: 7692911928611483039, guid: 656cf4f7596039f46b61df9ddec0a24d, type: 3}
       propertyPath: m_Name
       value: A leaf
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692911928611483039, guid: 656cf4f7596039f46b61df9ddec0a24d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15795,10 +16065,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tyrannosaurus rex was one of the most ferocious predators to ever walk
-    the Earth. With a massive body, sharp teeth, and jaws so powerful they could
-    crush a car, this famous carnivore dominated the forested river valleys in western
-    North America during the late Cretaceous period, 68 million years ago.
+  m_text: '
+
+
+
+    Walk around our museum and see various exhibits and also interact
+    with cartain features that are on some of our exhibits!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -21423,5 +21695,9 @@ SceneRoots:
   - {fileID: 626606502}
   - {fileID: 405547841}
   - {fileID: 920866736}
-  - {fileID: 61064743}
   - {fileID: 443756968}
+  - {fileID: 61064743}
+  - {fileID: 1636803650}
+  - {fileID: 700149279}
+  - {fileID: 1166703524}
+  - {fileID: 24206620}
