@@ -20,6 +20,11 @@ public class XRJoystickDrive : MonoBehaviour
     [Tooltip("Normalized joystick value in [-1,1] (x=right/left, y=forward/back)")]
     public Vector2 value;// Current joystick position normalized to range -1..1.
 
+    [Header("Rotation Target")]
+    public Transform leafPivot;          // Assign LeafPivot here in Inspector
+    public float maxLeafRotation = 90f;  // Degrees left/right
+
+
 
     // Stores the original position and rotation of the grab handle
     // (used for resetting when the joystick is released).
@@ -77,34 +82,34 @@ public class XRJoystickDrive : MonoBehaviour
         // If not currently selected, nothing to compute
         if (grabHandle.interactorsSelecting.Count == 0) return;
 
-        // Calculate how far the handle has moved in world space from the rest position.
         Vector3 delta = grabHandle.transform.position - startPos;
 
-        // Convert that world-space movement into the joystick's local space axes:
-        // dx = movement along local X (left/right), dz = movement along local Z (forward/back).
         Transform t = transform;
         float dx = Vector3.Dot(delta, t.right);
         float dz = Vector3.Dot(delta, t.forward);
 
-        // Apply dead zone: ignore tiny movements below the threshold.
         if (Mathf.Abs(dx) < deadZone) dx = 0f;
         if (Mathf.Abs(dz) < deadZone) dz = 0f;
 
-        // Normalize movement to range [-1,1] by dividing by maxDisplacement and clamping.
         float nx = Mathf.Clamp(dx / maxDisplacement, -1f, 1f);
         float ny = Mathf.Clamp(dz / maxDisplacement, -1f, 1f);
-        SetValue(new Vector2(nx, ny));         // Update the output value with the normalized coordinates.
+        SetValue(new Vector2(nx, ny));
 
-        // Tilt the visual rotationPart to simulate the joystick angle:
-        // - Forward/back movement rotates around X-axis.
-        // - Left/right movement rotates around Z-axis (negative sign makes it feel natural).
         if (rotationPart)
         {
             float tiltX = ny * maxTiltAngle;
-            float tiltZ = -nx * maxTiltAngle; // negative for intuitive right tilt
+            float tiltZ = -nx * maxTiltAngle;
             rotationPart.localRotation = Quaternion.Euler(tiltX, 0f, tiltZ);
         }
+
+        // === ROTATE LEAF ===
+        if (leafPivot)
+        {
+            float yaw = value.x * maxLeafRotation;
+            leafPivot.localRotation = Quaternion.Euler(0f, yaw, 0f);
+        }
     }
+
 
     void SetValue(Vector2 v)
     {
