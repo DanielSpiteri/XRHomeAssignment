@@ -25,6 +25,7 @@ public class ToggleExhibitLight : MonoBehaviour
 
     public void Toggle()
     {
+        Debug.Log("Toggle Exhibit Light");
         isOn = !isOn;
 
         if (targetLight != null) targetLight.enabled = isOn;
